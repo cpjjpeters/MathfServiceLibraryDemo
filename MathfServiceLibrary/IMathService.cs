@@ -12,34 +12,23 @@ namespace MathfServiceLibrary
     public interface IMathService
     {
         [OperationContract]
-        string GetData(int value);
+        int Add(MyNumbers obj);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
+        int Subtract(MyNumbers obj);
         // TODO: Add your service operations here
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "MathfServiceLibrary.ContractType".
     [DataContract]
-    public class CompositeType
+    public class MyNumbers
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        
+        [DataMember]
+        public int Number1 { get; set; }
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public int Number2 { get; set; }
     }
 }

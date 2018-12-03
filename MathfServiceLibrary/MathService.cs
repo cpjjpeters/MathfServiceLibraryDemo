@@ -10,22 +10,14 @@ namespace MathfServiceLibrary
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class MathService : IMathService
     {
-        public string GetData(int value)
+        public int Add(MyNumbers obj)
         {
-            return string.Format("You entered: {0}", value);
+            return (obj.Number1 + obj.Number2);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public int Subtract(MyNumbers obj)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return (obj.Number1 - obj.Number2);
         }
     }
 }
